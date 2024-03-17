@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логин</title>
+    <link rel="stylesheet" href="{% static 'games/css/login.css' %}">
+</head>
+<body>
+<header>
+</header>
+
+<main class="login-container">
+    <h2>Вход</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Войти</button>
+    </form>
+    <a href="/">На главную</a>
+</main>
+
+<footer>
+    <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
+</footer>
+
+<script src="{% static 'games/js/scripts.js' %}"></script>
+</body>
+</html>

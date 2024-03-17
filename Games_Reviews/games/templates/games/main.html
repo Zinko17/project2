@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-сайт отзывов об играх</title>
+    <!-- Подключение стилей CSS -->
+    <link rel="stylesheet" href="{% static 'games/css/main.css'%}">
+</head>
+<body>
+
+<header>
+    <!-- Верхняя панель навигации -->
+    <nav>
+        <ul>
+            <li><a href="/" class="home-btn">Главная</a></li>
+            <li><a href="/rating/">Рейтинг</a></li>
+            <li>
+                <form action="/search/" method="get">
+                    <input type="text" name="q" placeholder="Поиск...">
+                    <input type="submit" value="Найти">
+                </form>
+            </li>
+            <li><a href="/profile/">Профиль</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Надпись "Популярные игры" -->
+    <h1 class="popular-games-heading">Популярные игры</h1>
+
+    <!-- Секция с карточками игр -->
+    <section class="game-cards-slider">
+        <button class="prev-slide">◄</button>
+        <div class="slider-row">
+            <!-- Карточка игры -->
+            {% for game in games %}
+            <div class="game-card">
+                <div class="game-card-image">
+                    <img src="{{ game.image.url }}" alt="{{ game.title }}">
+                </div>
+                <div class="game-card-details">
+                    <h3>{{ game.title }}</h3>
+                    <p>Рейтинг: {{ game.avg_score }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="next-slide">►</button>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
+</footer>
+
+<script src="{% static 'games/js/scripts.js' %}"></script>
+</body>
+</html>

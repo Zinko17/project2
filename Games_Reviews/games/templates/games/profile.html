@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="{% static 'games/css/main.css' %}">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/" class="home-btn">Главная</a></li>
+            <li><a href="/rating/">Рейтинг</a></li>
+            <li>
+                <form action="/search/" method="get">
+                    <input type="text" name="q" placeholder="Поиск...">
+                    <input type="submit" value="Найти">
+                </form>
+            </li>
+            <li><li><a href="{% url 'logout' %}?next=/">Выход</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Карточка профиля -->
+    <section class="profile-card">
+        <div class="profile-details">
+            <img src="{% static 'games/images/profile-pic.jpg' %}" alt="Profile Picture" class="profile-picture">
+            <h2>{{ user.username }}</h2>
+            <p>Email: {{ user.email }}</p>
+            <p>First Name: {{ user.first_name }}</p>
+            <p>Last Name: {{ user.last_name }}</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
+</footer>
+
+<script src="{% static 'games/js/scripts.js' %}"></script>
+</body>
+</html>
