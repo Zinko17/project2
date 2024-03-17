@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль</title>
-    <link rel="stylesheet" href="{% static 'games/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'games/css/profile.css' %}">
 </head>
 <body>
 <header>
@@ -19,7 +19,7 @@
                     <input type="submit" value="Найти">
                 </form>
             </li>
-            <li><li><a href="{% url 'logout' %}?next=/">Выход</a></li>
+            <li><a href="{% url 'logout' %}?next=/profile/">Выход</a></li>
         </ul>
     </nav>
 </header>
@@ -27,8 +27,8 @@
 <main>
     <!-- Карточка профиля -->
     <section class="profile-card">
+        <div class="profile-picture"></div>
         <div class="profile-details">
-            <img src="{% static 'games/images/profile-pic.jpg' %}" alt="Profile Picture" class="profile-picture">
             <h2>{{ user.username }}</h2>
             <p>Email: {{ user.email }}</p>
         </div>
