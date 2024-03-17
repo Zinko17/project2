@@ -72,3 +72,9 @@ a.home-btn {
     text-align: center;
     margin-top: 20px;
 }
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
