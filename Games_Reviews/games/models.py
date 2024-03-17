@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Genre(models.Model):
@@ -27,12 +28,16 @@ class Game(models.Model):
         verbose_name = 'Игра'
         verbose_name_plural = 'Игры'
 
-# class Review(models.Model):
-#     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='reviews')
-#     #user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     text = models.TextField('Текст отзыва')
-#     creation_date = models.DateTimeField('Дата создания отзыва', auto_now_add=True)
-#     rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+class Review(models.Model):
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField('Текст отзыва')
+    creation_date = models.DateTimeField('Дата создания отзыва', auto_now_add=True)
+    rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
 
 
 
