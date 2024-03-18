@@ -39,6 +39,9 @@ class Review(models.Model):
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
 
+    def __str__(self):
+        return self.text
+
 
 
 
