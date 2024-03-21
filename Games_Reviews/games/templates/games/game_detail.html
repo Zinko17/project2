@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Веб-сайт отзывов об играх</title>
+    <title>Подробная информация об игре</title>
     <!-- Подключение стилей CSS -->
     <link rel="stylesheet" href="{% static 'games/css/main.css'%}">
 </head>
@@ -28,30 +28,13 @@
 </header>
 
 <main>
-    <!-- Надпись "Популярные игры" -->
-    <h1 class="popular-games-heading">Популярные игры</h1>
-
-    <!-- Секция с карточками игр -->
-    <section class="game-cards-slider">
-        <button class="prev-slide">◄</button>
-        <div class="slider-row">
-            <!-- Карточка игры -->
-            {% for game in games %}
-            <div class="game-card" data-game-id="{{ game.id }}">
-                <div class="game-card-image">
-                    <img src="{{ game.image.url }}" alt="{{ game.title }}">
-                </div>
-                <div class="game-card-details">
-                    <h3>{{ game.title }}</h3>
-                    <p>Рейтинг: {{ game.avg_score }}</p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        <button class="next-slide">►</button>
+    <!-- Секция с подробной информацией об игре -->
+    <section class="game-details">
+        <h1>{{ game.title }}</h1>
+        <img src="{{ game.image.url }}" alt="{{ game.title }}">
+        <p>Рейтинг: {{ game.avg_score }}</p>
+        <!-- Дополнительные поля с информацией об игре -->
     </section>
-
-
 </main>
 
 <footer>

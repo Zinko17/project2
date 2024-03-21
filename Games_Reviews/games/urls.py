@@ -12,6 +12,7 @@ urlpatterns = [
     path('register/', views.register_view, name="register"),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('game/<int:game_id>/', views.game_detail, name='game_detail'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
