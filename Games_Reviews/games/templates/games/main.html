@@ -39,7 +39,7 @@
             {% for game in games %}
             <div class="game-card" data-game-id="{{ game.id }}">
                 <div class="game-card-image">
-                    <img src="{{ game.image.url }}" alt="{{ game.title }}">
+                    <img class="game-card-image" src="{{ game.image.url }}" alt="{{ game.title }}">
                 </div>
                 <div class="game-card-details">
                     <h3>{{ game.title }}</h3>
