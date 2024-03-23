@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Подробная информация об игре</title>
+    <title>{{ game.title }}</title>
     <!-- Подключение стилей CSS -->
-    <link rel="stylesheet" href="{% static 'games/css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'games/css/game_detail.css'%}">
 </head>
 <body>
 
@@ -30,10 +30,21 @@
 <main>
     <!-- Секция с подробной информацией об игре -->
     <section class="game-details">
-        <h1>{{ game.title }}</h1>
-        <img src="{{ game.image.url }}" alt="{{ game.title }}">
-        <p>Рейтинг: {{ game.avg_score }}</p>
-        <!-- Дополнительные поля с информацией об игре -->
+        <h2 class="game-details-heading">Подробное описание игры {{ game.title }}</h2>
+        <div class="game-card">
+            <img class="game-card-image" src="{{ game.image.url }}" alt="{{ game.title }}">
+            <h1>{{ game.title }}</h1>
+            <p><strong>Разработчик:</strong> {{ game.developer }}</p>
+            <p><strong>Дата выхода:</strong> {{ game.release_date }}</p>
+            <p><strong>Описание:</strong> {{ game.description }}</p>
+            <p><strong>Средний рейтинг:</strong> {{ game.avg_score }}</p>
+            <p><strong>Жанры:</strong>
+                {% for genre in game.genres.all %}
+                    {{ genre.name }}
+                    {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        </div>
     </section>
 </main>
 
@@ -41,6 +52,5 @@
     <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
 </footer>
 
-<script src="{% static 'games/js/scripts.js' %}"></script>
 </body>
 </html>

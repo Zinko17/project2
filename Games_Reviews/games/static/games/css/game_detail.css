@@ -1,0 +1,125 @@
+/* Стили для body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Стили для header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Стили для верхней панели навигации */
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили для кнопок в панели навигации */
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li:first-child {
+    margin-right: auto;
+}
+
+header nav ul li a {
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Стили для main */
+main {
+    padding: 20px;
+}
+
+/* Стили для надписи "Подробное описание игры" */
+.game-details-heading {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid #333; /* Добавлено для линии под текстом */
+    width: fit-content; /* Добавлено для правильного позиционирования */
+}
+
+
+
+/* Стили для карточки игры */
+.game-card {
+    width: 70%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 auto 20px; /* Центрирование карточки и добавление отступа снизу */
+}
+
+/* Стили для изображения игры */
+.game-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+/* Стили для содержимого карточки игры */
+.game-card-content {
+    text-align: center;
+}
+
+/* Стили для заголовка */
+.game-card h1 {
+    margin-bottom: 10px;
+}
+
+/* Стили для остального содержимого */
+.game-card p {
+    margin-bottom: 5px;
+}
+
+/* Стили для footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Стили для изображения игры в увеличенном виде */
+.game-card-image:hover {
+    transform: scale(1.7); /* Увеличиваем картинку при наведении */
+    transition: transform 0.3s ease; /* Плавное изменение */
+    cursor: pointer; /* Изменяем курсор при наведении */
+}
