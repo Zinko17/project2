@@ -149,9 +149,9 @@ footer {
     width: 100%;
 }
 
-/* Стили для изображения игры в увеличенном виде */
+/* Стили для изображения игры в увеличенном виде
 .game-card-image:hover {
-    transform: scale(1.7); /* Увеличиваем картинку при наведении */
-    transition: transform 0.3s ease; /* Плавное изменение */
-    cursor: pointer; /* Изменяем курсор при наведении */
-}
+    transform: scale(1.7);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}*/
