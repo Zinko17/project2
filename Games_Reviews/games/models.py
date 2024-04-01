@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db.models import Avg
+
 
 class Genre(models.Model):
     name = models.CharField('Название жанра', max_length=50)
@@ -27,6 +29,11 @@ class Game(models.Model):
     class Meta:
         verbose_name = 'Игра'
         verbose_name_plural = 'Игры'
+
+    def update_avg_rating(self):
+        avg_rating = self.reviews.aggregate(Avg('rating'))['rating__avg']
+        self.avg_score = avg_rating if avg_rating else 0
+        self.save()
 
 class Review(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='reviews')
