@@ -31,7 +31,7 @@
     <h1 class="page-heading">Рейтинг игр</h1>
     <section class="games-section">
         {% for game in games %}
-        <div class="game-card">
+        <div class="game-card" data-game-id="{{ game.id }}">
             <span class="ranking">#{{ forloop.counter }}</span> <!-- Добавляем номер места в рейтинге -->
             <img src="{{ game.image.url }}" alt="{{ game.title }}">
             <div class="game-info">
@@ -48,6 +48,8 @@
     <!-- Футер -->
     <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
 </footer>
+
+<script src="{% static 'games/js/rating.js' %}"></script>
 
 </body>
 </html>
