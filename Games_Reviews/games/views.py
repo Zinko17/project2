@@ -45,3 +45,9 @@ def add_review(request, game_id):
         return redirect('game_detail', game_id=game_id)
     return render(request, 'game_detail.html', {'game': game})
 
+
+def search(request):
+    query = request.GET.get('q')
+    games = Game.objects.filter(title__icontains=query) if query else None
+    return render(request, 'games/search_results.html', {'query': query, 'games': games})
+

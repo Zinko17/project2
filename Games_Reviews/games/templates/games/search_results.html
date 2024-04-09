@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска</title>
+    <link rel="stylesheet" href="{% static 'games/css/search_results.css' %}">
+</head>
+<body>
+
+<header>
+    <!-- Хедер -->
+    <nav>
+        <ul>
+            <li><a href="/" class="home-btn">Главная</a></li>
+            <li><a href="/rating/">Рейтинг</a></li>
+            <li>
+                <form action="/search/" method="get">
+                    <input type="text" name="q" placeholder="Поиск...">
+                    <input type="submit" value="Найти">
+                </form>
+            </li>
+            <li><a href="/profile/">Профиль</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1 class="page-heading">Результаты поиска</h1>
+    <section class="games-section">
+        {% if games %}
+            {% for game in games %}
+            <div class="game-card" data-game-id="{{ game.id }}">
+                <img src="{{ game.image.url }}" alt="{{ game.title }}">
+                <div class="game-info">
+                    <h2>{{ game.title }}</h2>
+                    <p><strong>Разработчик:</strong> {{ game.developer }}</p>
+                    <p><strong>Рейтинг:</strong> {{ game.avg_score }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Результаты по вашему запросу не найдены. Попробуйте изменить поисковый запрос.</p>
+        {% endif %}
+    </section>
+</main>
+
+
+<footer>
+    <!-- Футер -->
+    <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
+</footer>
+
+<script src="{% static 'games/js/rating.js' %}"></script>
+
+</body>
+</html>
