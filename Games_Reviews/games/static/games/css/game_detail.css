@@ -195,3 +195,13 @@ footer {
 .review-form button[type="submit"]:hover {
     background-color: #555; /* Цвет кнопки при наведении */
 }
+
+.review-message1 {
+    text-align: center; /* Центрируем текст */
+    margin-top: 20px; /* Добавляем отступ сверху */
+}
+
+.review-message2 {
+    text-align: center; /* Центрируем текст */
+    margin-top: 20px; /* Добавляем отступ сверху */
+}

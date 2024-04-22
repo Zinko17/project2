@@ -46,34 +46,39 @@
             </p>
         </div>
 
-                <!-- Форма для оставления отзыва -->
-    <section class="review-form">
-        <h2>Оставить отзыв</h2>
-        <form method="post" action="{% url 'add_review' game.id %}">
-            {% csrf_token %}
-            <label for="rating">Оценка:</label><br>
-            <input type="number" id="rating" name="rating" min="1" max="100"><br>
-            <label for="text">Текст отзыва:</label><br>
-            <textarea id="text" name="text"></textarea><br>
-            <input type="submit" value="Оставить отзыв">
-        </form>
-    </section>
+        <!-- Проверка аутентификации пользователя перед отображением формы для оставления отзыва -->
+        {% if user.is_authenticated %}
+            <!-- Форма для оставления отзыва -->
+            <section class="review-form">
+                <h2>Оставить отзыв</h2>
+                <form method="post" action="{% url 'add_review' game.id %}">
+                    {% csrf_token %}
+                    <label for="rating">Оценка:</label><br>
+                    <input type="number" id="rating" name="rating" min="1" max="100"><br>
+                    <label for="text">Текст отзыва:</label><br>
+                    <textarea id="text" name="text"></textarea><br>
+                    <input type="submit" value="Оставить отзыв">
+                </form>
+            </section>
+        {% else %}
+            <p class="review-message1">Чтобы оставить отзыв, пожалуйста, <a href="{% url 'login' %}">войдите в аккаунт</a>.</p>
+        {% endif %}
 
         <!-- Секция с отзывами об игре -->
-    <section class="reviews-section">
-        <h2 class="reviews-heading">Отзывы</h2>
+        <section class="reviews-section">
+            <h2 class="reviews-heading">Отзывы</h2>
 
-        <!-- Карточки отзывов -->
-        {% for review in reviews %}
-            <div class="review-card">
-                <p><strong>Пользователь:</strong> {{ review.user.username }}</p>
-                <p><strong>Оценка:</strong> {{ review.rating }}</p>
-                <p><strong>Отзыв:</strong> {{ review.text }}</p>
-            </div>
-        {% empty %}
-            <p>Пока нет отзывов.</p>
-        {% endfor %}
-    </section>
+            <!-- Карточки отзывов -->
+            {% for review in reviews %}
+                <div class="review-card">
+                    <p><strong>Пользователь:</strong> {{ review.user.username }}</p>
+                    <p><strong>Оценка:</strong> {{ review.rating }}</p>
+                    <p><strong>Отзыв:</strong> {{ review.text }}</p>
+                </div>
+            {% empty %}
+                <p class="review-message2">Пока нет отзывов.</p>
+            {% endfor %}
+        </section>
     </section>
 </main>
 
