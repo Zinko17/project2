@@ -49,6 +49,7 @@ header nav ul li a {
 /* Стили для main */
 main {
     padding: 20px;
+    margin-bottom: 60px;
 }
 
 /* Стили для профильной карточки */
@@ -82,4 +83,87 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Стили для надписи "Отзывы" */
+.reviews-heading {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid #333; /* Добавлено для линии под текстом */
+}
+
+/* Стили для карточки отзыва */
+.review-card {
+    width: 70%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto; /* Центрирование и отступ между карточками отзывов */
+}
+
+
+/* Стили для формы отзыва */
+.review-form {
+    margin-top: 50px; /* Отступ от предыдущего контента */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Максимальная ширина формы */
+    margin-left: auto; /* Центрируем форму по горизонтали */
+    margin-right: auto; /* Центрируем форму по горизонтали */
+}
+
+.review-form-heading {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Стили для полей формы и кнопки */
+.review-form input[type="number"],
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Учитываем внутренние отступы в размере элемента */
+}
+
+.review-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-form button[type="submit"]:hover {
+    background-color: #555; /* Цвет кнопки при наведении */
+}
+
+.review-message1 {
+    text-align: center; /* Центрируем текст */
+    margin-top: 20px; /* Добавляем отступ сверху */
+}
+
+.review-message2 {
+    text-align: center; /* Центрируем текст */
+    margin-top: 20px; /* Добавляем отступ сверху */
 }

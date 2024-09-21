@@ -9,15 +9,21 @@ from .forms import RegistrationForm
 def rating_view(request):
     # Получаем все игры отсортированные по рейтингу
     games = Game.objects.order_by('-avg_score')
+    for game in games:
+        game.avg_score = round(game.avg_score)
     return render(request, 'games/rating.html', {'games': games})
 
 def index(request):
     games = Game.objects.all()
+    for game in games:
+        game.avg_score = round(game.avg_score)
     return render(request, 'games/main.html', {'games': games})
 
 @login_required
 def profile_view(request):
-    return render(request, 'games/profile.html', )
+    # Получаем последние 5 отзывов текущего пользователя, отсортированных по creation_date
+    reviews = Review.objects.filter(user=request.user).order_by('-creation_date')[:5]
+    return render(request, 'games/profile.html', {'reviews': reviews})
 
 def register_view(request):
     if request.method == 'POST':
@@ -31,6 +37,7 @@ def register_view(request):
 
 def game_detail(request, game_id):
     game = Game.objects.get(id=game_id)
+    game.avg_score = round(game.avg_score)
     reviews = game.reviews.all()
     return render(request, 'games/game_detail.html', {'game': game, 'reviews': reviews})
 

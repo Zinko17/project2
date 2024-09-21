@@ -33,6 +33,22 @@
             <p>Email: {{ user.email }}</p>
         </div>
     </section>
+
+    <section class="reviews-section">
+        <h3 class="reviews-heading">Последние отзывы</h3>
+        {% if reviews %}
+            {% for review in reviews %}
+            <div class="review-card">
+                <h4>Название игры: {{ review.game.title }}</h4>  <!-- Заголовок игры, к которой относится отзыв -->
+                <p>Рейтинг: {{ review.rating }}</p> <!-- Или другое поле, которое ты используешь -->
+                <p>Отзыв: {{ review.text }}</p>  <!-- Текст отзыва -->
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>У вас пока нет отзывов.</p>
+        {% endif %}
+    </section>
+
 </main>
 
 <footer>
