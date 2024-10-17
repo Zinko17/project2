@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жанры игр</title>
+    <link rel="stylesheet" href="{% static 'games/css/genre_list.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="/" class="home-btn">Главная</a></li>
+            <li><a href="/rating/">Рейтинг</a></li>
+            <li>
+                <form action="/search/" method="get">
+                    <input type="text" name="q" placeholder="Поиск...">
+                    <input type="submit" value="Найти">
+                </form>
+            </li>
+            <li><a href="/profile/">Профиль</a></li>
+            <li><a href="/genres/">Жанры</a></li>  <!-- Ссылка на жанры -->
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1 class="page-heading">Жанры игр</h1>
+    <section class="genres-section">
+        {% for genre in genres %}
+        <div class="genre-card">
+            <h2>{{ genre.name }}</h2>
+            <button class="genre-button" onclick="window.location.href='{% url 'genre_detail' genre.id %}'">Перейти</button>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
+</footer>
+
+</body>
+</html>
