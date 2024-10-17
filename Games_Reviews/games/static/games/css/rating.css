@@ -49,6 +49,7 @@ header nav ul li a {
 /* Стили для main */
 main {
     padding: 20px;
+    flex: 1 0 auto;
 }
 
 /* Стили для надписи "Рейтинг игр" */
@@ -74,7 +75,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin: 20px auto; /* Центрирование карты */
+    margin: 10px auto; /* Центрирование карты */
     position: relative; /* Относительное позиционирование для .game-position */
     margin-bottom: 100px; /* Добавляем отступ снизу */
 }
@@ -145,4 +146,31 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    flex: 0 0 auto;
+}
+
+.foot{
+    margin-top:20 px;
+}
+
+.no-games-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.no-games-section h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+.no-games-section p {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.no-games-image {
+    width: 200px; /* или любая другая ширина, чтобы соответствовать стилю вашего сайта */
+    height: auto;
+    margin-top: 20px;
 }
