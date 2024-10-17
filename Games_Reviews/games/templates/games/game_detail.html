@@ -10,22 +10,7 @@
 </head>
 <body>
 
-<header>
-    <!-- Верхняя панель навигации -->
-    <nav>
-        <ul>
-            <li><a href="/" class="home-btn">Главная</a></li>
-            <li><a href="/rating/">Рейтинг</a></li>
-            <li>
-                <form action="/search/" method="get">
-                    <input type="text" name="q" placeholder="Поиск...">
-                    <input type="submit" value="Найти">
-                </form>
-            </li>
-            <li><a href="/profile/">Профиль</a></li>
-        </ul>
-    </nav>
-</header>
+{% include 'games/header_footer.html' %}
 
 <main>
     <!-- Секция с подробной информацией об игре -->
@@ -82,9 +67,6 @@
     </section>
 </main>
 
-<footer>
-    <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
-</footer>
 
 </body>
 </html>
