@@ -19,7 +19,11 @@
                     <input type="submit" value="Найти">
                 </form>
             </li>
-            <li><a href="{% url 'logout' %}?next=/profile/">Выход</a></li>
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="/profile/">
+                <button type="submit" class="btn btn-link">Выход</button>
+            </form>
         </ul>
     </nav>
 </header>
