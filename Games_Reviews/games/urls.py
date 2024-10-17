@@ -16,6 +16,8 @@ urlpatterns = [
     path('game/<int:game_id>/add_review/', views.add_review, name='add_review'),
     path('rating/', views.rating_view, name='rating'),
     path('search/', views.search, name='search'),
+    path('genres/', views.genre_list, name='genre_list'),  # Страница со списком жанров
+    path('genres/<int:genre_id>/', views.genre_detail, name='genre_detail'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
