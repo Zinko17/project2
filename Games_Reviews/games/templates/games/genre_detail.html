@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ genre.name }}</title>
+    <link rel="stylesheet" href="{% static 'games/css/rating.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="/" class="home-btn">Главная</a></li>
+            <li><a href="/rating/">Рейтинг</a></li>
+            <li>
+                <form action="/search/" method="get">
+                    <input type="text" name="q" placeholder="Поиск...">
+                    <input type="submit" value="Найти">
+                </form>
+            </li>
+            <li><a href="/profile/">Профиль</a></li>
+            <li><a href="/genres/">Жанры</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1 class="page-heading">{{ genre.name }}</h1>
+
+    {% if genre.games.exists %}
+    <section class="games-section">
+        {% for game in genre.games.all %}
+        <div class="game-card">
+            <img src="{{ game.image.url }}" alt="{{ game.title }}">
+            <div class="game-info">
+                <h2>{{ game.title }}</h2>
+                <p><strong>Разработчик:</strong> {{ game.developer }}</p>
+                <p><strong>Рейтинг:</strong> {{ game.avg_score }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    {% else %}
+    <section class="no-games-section">
+        <h2>Пока что нет игр в этом жанре.</h2>
+        <p>Но не переживайте! Мы постоянно добавляем новые игры. Загляните позже!</p>
+    </section>
+    {% endif %}
+</main>
+
+<footer>
+    <p>&copy; 2024 Веб-сайт отзывов об играх. Все права защищены.</p>
+</footer>
+
+</body>
+</html>
