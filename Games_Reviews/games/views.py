@@ -58,3 +58,18 @@ def search(request):
     games = Game.objects.filter(title__icontains=query) if query else None
     return render(request, 'games/search_results.html', {'query': query, 'games': games})
 
+
+from .models import Genre
+
+def genre_list(request):
+    genres = Genre.objects.all()  # Получаем все жанры
+    return render(request, 'games/genre_list.html', {'genres': genres})
+
+def genre_detail(request, genre_id):
+    genre = Genre.objects.get(id=genre_id)  # Получаем жанр по ID
+    games = genre.games.all()  # Получаем все игры, связанные с жанром
+    for game in games:
+        game.avg_score = round(game.avg_score)
+    return render(request, 'games/genre_detail.html', {'genre': genre, 'games': games})
+
+
